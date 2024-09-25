@@ -73,7 +73,7 @@
         "No messages yet."
         "Messages sent in the past 10 minutes:")]
      [:div#messages
-      (map message (sort-by :msg/sent-at #(compare %2 %1) messages))]]))
+      (map ui-message (sort-by :msg/sent-at #(compare %2 %1) messages))]]))
 
 (defn app [{:keys [session biff/db com.example/data] :as ctx}]
   (let [{:user/keys [foo bar]} (get-in @data [:users (:uid session)])]
